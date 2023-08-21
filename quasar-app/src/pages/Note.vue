@@ -19,7 +19,9 @@ export default {
             router.push('/')
         }
 
-        return { note, remove }
+        const editing = ref(false)
+
+        return { note, remove, editing }
     }
 }
 </script>
