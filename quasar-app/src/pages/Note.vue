@@ -1,14 +1,33 @@
 <script>
 /* eslint-disable */
-import { defineComponent } from 'vue';
-export default defineComponent({
+import Container from 'src/components/Container.vue';
+import { useLocalNotes } from 'src/helper';
+import { useRoute, useRouter } from 'vue-router';
+
+export default {
+    components: { Container },
     name: 'NotePage',
     setup() {
+        const notes = useLocalNotes();
+        const router = useRouter();
+        const route = useRoute();
+        const noteId = computed(() => parseInt(route.params.idx))
+        const note = computed(() => notes.value[noteId.value])
 
+        const remove = () => {
+            notes.value.splice(noteId.value, 1)
+            router.push('/')
+        }
+
+        return { note, remove }
     }
-})
+}
 </script>
 
 <template>
-  
+    <q-page padding>
+        <Container>
+
+        </Container>
+    </q-page>
 </template>
