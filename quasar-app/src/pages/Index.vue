@@ -34,7 +34,7 @@ export default defineComponent({
                 :description="description"
                 @click="router.push(`/note/${idx}`)"
             />
-            <div v-if="notes.length === 0">You have not created any notes.</div>
+            <div v-if="notes.length === 0">You have not created any notes!!!</div>
         </Container>
     </q-page>
 </template>
